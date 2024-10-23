@@ -3,7 +3,7 @@ from app.restore_names import restore_names
 
 
 @pytest.fixture()
-def dict_template():
+def dict_template() -> list:
     return [
         {
             "first_name": None,
@@ -17,7 +17,7 @@ def dict_template():
     ]
 
 
-def test_should_add_first_name(dict_template):
+def test_should_add_first_name(dict_template: pytest) -> None:
     restore_names(dict_template)
     assert dict_template == [
         {
@@ -25,7 +25,8 @@ def test_should_add_first_name(dict_template):
             "last_name": "Holy",
             "full_name": "Jack Holy",
         },
-        {   "first_name": "Mike",
+        {
+            "first_name": "Mike",
             "last_name": "Adams",
             "full_name": "Mike Adams",
         },
